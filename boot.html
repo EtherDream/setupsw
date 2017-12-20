@@ -9,7 +9,7 @@ function preload(list, cb) {
     var img = new Image();
     img.onerror = function() {
       if (++count == list.length) {
-        redir();
+        cb();
       }
     };
     img.src = list[i];
