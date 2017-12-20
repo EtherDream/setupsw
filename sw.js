@@ -1,7 +1,7 @@
 console.log('sw running...');
 
 function work() {
-  console.log('time:', new Date().toISOString());
+  console.log('time: ' + new Date().toISOString());
   var s = 0;
   for (var i = 0; i < 9e9; i++) {
     s += i;
