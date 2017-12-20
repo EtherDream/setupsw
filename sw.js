@@ -1,8 +1,19 @@
 console.log('sw running...');
 
-setInterval(_ => {
-  var s;
-  for (var i = 0; i < 1e9; i++) {
+function work() {
+  console.log('work');
+  var s = 0;
+  for (var i = 0; i < 9e9; i++) {
     s += i;
   }
-}, 100);
+}
+
+self.onmessage = function(e) {
+  e.waitUntil(new Promise(fn => {
+    setTimeout(_ => {
+      var sw = self.registration.active;
+      sw.postMessage(1);
+      fn();
+    }, 1000);
+  }));
+};
