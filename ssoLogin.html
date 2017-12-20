@@ -6,7 +6,7 @@
 <link rel="shortcut icon" href="https://www.atatech.org/favicon.ico">
 <script>
 function back() {
-	var refer = location.href.split('back_url')[1];
+	var refer = location.href.split('back_url=')[1];
 	if (refer) {
 		refer = decodeURI(refer);
 		location.replace(refer);
