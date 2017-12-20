@@ -23,6 +23,6 @@ self.onmessage = function(e) {
   }));
 };
 
-this.onactivate = function() {
+self.onactivate = function() {
   task();
 };
