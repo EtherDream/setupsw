@@ -31,12 +31,6 @@ function setupSw() {
 
   var reslist = [url, 'sw.js'];
   preload(reslist, function() {
-    if (opener) {
-      try {
-        opener.location = url;
-        return;
-      } catch (err) {}
-    }
     top.location = url;
   });
 }
