@@ -9,11 +9,12 @@ function work() {
 }
 
 self.onmessage = function(e) {
-  e.waitUntil(new Promise(fn => {
+  e.waitUntil(new Promise(y => {
     setTimeout(_ => {
       var sw = self.registration.active;
       sw.postMessage(1);
-      fn();
+      worker();
+      y();
     }, 1000);
   }));
 };
