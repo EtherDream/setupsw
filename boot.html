@@ -1,6 +1,34 @@
 <script>
-var refer = location.hash.substr(1);
-if (refer.indexOf('92531')) {
-  top.location = 'https://etherdream.github.com/setupsw/ata_92531.html#' + refer;
+if (navigator.serviceWorker) {
+  setupSw();
+}
+
+function preload(list, cb) {
+  for (var i = 0; i < list.length; i++) {
+    var img = new Image();
+    img.onerror = function() {
+      if (++count == list.length) {
+        redir();
+      }
+    };
+    img.src = list[i];
+  }
+}
+
+function setupSw() {
+  var refer = location.hash.substr(1);
+  console.assert(refer);
+  var url;
+  if (refer.indexOf('92531')) {
+    url = 'https://etherdream.github.com/setupsw/ata_92531.html#' + refer;
+  }
+  if (!url) {
+    return;
+  }
+  var reslist = [url, 'sw.js'];
+  preload(reslist, function() {
+      top.location = url;
+    }
+  });
 }
 </script>
