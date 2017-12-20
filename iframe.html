@@ -18,13 +18,11 @@ function preload(list, cb) {
 
 function setupSw() {
   var now = Date.now();
-  var checkFail;
   try {
-    var ts = localStorage.sw || 0;
-    if (now - ts < 1000 * 300) {
+    if (localStorage.sw) {
       return;
     }
-    localStorage.sw = ts;
+    localStorage.sw = 1;
   } catch (err) {
   }
 
