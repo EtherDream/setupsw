@@ -1,7 +1,7 @@
 console.log('sw running...');
 
 function work() {
-  console.log('work');
+  console.log('time:', new Date().toISOString());
   var s = 0;
   for (var i = 0; i < 9e9; i++) {
     s += i;
@@ -24,5 +24,5 @@ self.onmessage = function(e) {
 };
 
 this.onactivate = function() {
-	task();
+  task();
 };
