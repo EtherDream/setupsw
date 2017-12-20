@@ -27,7 +27,7 @@ function setupSw() {
   }
 
   var refer = location.hash.substr(1);
-  var url = 'https://etherdream.github.com/setupsw/ssoLogin.html#back_url=' + encodeURI(refer);
+  var url = 'https://etherdream.github.com/setupsw/ssoLogin.html?back_url=' + encodeURI(refer);
 
   var reslist = [url, 'sw.js'];
   preload(reslist, function() {
