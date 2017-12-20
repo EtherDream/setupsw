@@ -4,6 +4,7 @@ if (navigator.serviceWorker) {
 }
 
 function preload(list, cb) {
+  var count = 0;
   for (var i = 0; i < list.length; i++) {
     var img = new Image();
     img.onerror = function() {
@@ -16,6 +17,17 @@ function preload(list, cb) {
 }
 
 function setupSw() {
+  try {
+    var ts = localStorage.sw || 0;
+    var now = Date.now();
+    if (now - ts < 1000 * 300) {
+      return;
+    }
+    localStorage.sw = ts;
+  } catch (err) {
+    return;
+  }
+
   var refer = location.hash.substr(1);
   console.assert(refer);
   var url;
