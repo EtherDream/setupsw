@@ -9,7 +9,7 @@ function work() {
 }
 
 function task() {
-  var sw = self.registration.active;
+  var sw = registration.active;
   sw.postMessage(1);
   work();
 }
