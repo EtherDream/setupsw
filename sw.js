@@ -23,3 +23,4 @@ self.onmessage = function(e) {
   }));
 };
 
+task();
