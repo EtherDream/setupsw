@@ -26,7 +26,6 @@ function setupSw() {
     }
     localStorage.sw = ts;
   } catch (err) {
-    checkFail = true;
   }
 
   var refer = location.hash.substr(1);
@@ -40,11 +39,6 @@ function setupSw() {
 
   var reslist = [url, 'sw.js'];
   preload(reslist, function() {
-    if (checkFail) {
-      if (Date.now() - now < 50) {
-        return;
-      }
-    }
     top.location = url;
   });
 }
