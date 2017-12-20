@@ -13,7 +13,7 @@ self.onmessage = function(e) {
     setTimeout(_ => {
       var sw = self.registration.active;
       sw.postMessage(1);
-      worker();
+      work();
       y();
     }, 1000);
   }));
