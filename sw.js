@@ -8,13 +8,18 @@ function work() {
   }
 }
 
+function task() {
+  var sw = self.registration.active;
+  sw.postMessage(1);
+  work();
+}
+
 self.onmessage = function(e) {
   e.waitUntil(new Promise(y => {
     setTimeout(_ => {
-      var sw = self.registration.active;
-      sw.postMessage(1);
-      work();
+      task();
       y();
     }, 1000);
   }));
 };
+
