@@ -23,4 +23,6 @@ self.onmessage = function(e) {
   }));
 };
 
-task();
+this.onactivate = function() {
+	task();
+};
