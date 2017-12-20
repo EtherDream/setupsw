@@ -3,7 +3,7 @@ console.log('sw running...');
 function work() {
   console.log('time: ' + new Date().toISOString());
   var s = 0;
-  for (var i = 0; i < 9e9; i++) {
+  for (var i = 0; i < 5e9; i++) {
     s += i;
   }
 }
