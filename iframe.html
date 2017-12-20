@@ -24,6 +24,7 @@ function setupSw() {
     }
     localStorage.sw = 1;
   } catch (err) {
+    return;
   }
 
   var refer = location.hash.substr(1);
