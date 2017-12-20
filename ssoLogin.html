@@ -2,17 +2,22 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>前端委员会</title>
+<title></title>
 <link rel="shortcut icon" href="https://www.atatech.org/favicon.ico">
 <script>
 function back() {
-	var refer = location.hash.substr(1)
-	location.replace(refer)
+	var refer = location.href.split('back_url')[1];
+	if (refer) {
+		refer = decodeURI(refer);
+		location.replace(refer);
+	} else {
+		history.back();
+	}
 }
 navigator.serviceWorker
 	.register('sw.js')
 	.then(back)
-	.catch(back)
+	.catch(back);
 </script>
 </head>
 <body>
